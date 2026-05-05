@@ -39,6 +39,7 @@ use Psr\Cache\CacheItemPoolInterface;
 use Symfony\AI\Platform\Message\Message;
 use Symfony\AI\Platform\Message\MessageBag;
 use Symfony\Component\DomCrawler\Crawler;
+use Symfony\Component\DomCrawler\UriResolver;
 use Symfony\Component\HttpClient\NoPrivateNetworkHttpClient;
 use Symfony\Component\Intl\Languages;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -146,7 +147,7 @@ final class AIWebProvider implements InfoProviderInterface
         $html = $response->getContent();
 
         //Convert html to markdown, to provide a cleaner input to the LLM.
-        $markdown = $this->htmlToMarkdown($html);
+        $markdown = $this->htmlToMarkdown($html, $url);
         //Truncate markdown to max content length, if needed
         $markdown = u($markdown)->truncate($this->settings->maxContentLength, '... [truncated]')->toString();
 
@@ -182,10 +183,32 @@ final class AIWebProvider implements InfoProviderInterface
         return json_encode($items->toObject(), JSON_THROW_ON_ERROR);
     }
 
-    private function htmlToMarkdown(string $html): string
+    private function htmlToMarkdown(string $html, string $url): string
     {
-        //Extract only the main content of the page to avoid overwhelming the LLM with irrelevant information.
+
         $crawler = new Crawler($html);
+
+        //Replace relative URLs with absolute URLs, to ensure that the LLM has full context and can access the links if needed.
+        $baseUrl = $crawler->getBaseHref() ?? $url;
+
+        //Replace all relative links with their absolute counnterparts, to provide more context to the LLM and to ensure that any links included in the markdown are valid and can be accessed if needed.
+        $crawler->filter('a')->each(function (Crawler $node) use ($baseUrl) {
+            $href = $node->attr('href');
+            if ($href) {
+                $absoluteUrl = UriResolver::resolve($href, $baseUrl);
+                $node->getNode(0)->setAttribute('href', $absoluteUrl);
+            }
+        });
+
+        $crawler->filter('img')->each(function (Crawler $node) use ($baseUrl) {
+            $src = $node->attr('src');
+            if ($src) {
+                $absoluteUrl = UriResolver::resolve($src, $baseUrl);
+                $node->getNode(0)->setAttribute('src', $absoluteUrl);
+            }
+        });
+
+        //Extract only the main content of the page to avoid overwhelming the LLM with irrelevant information.
         $mainContent = $crawler->filter('main, article, #content');
 
         // If we found a specific content area, get its HTML; otherwise, use the whole body.
@@ -198,7 +221,7 @@ final class AIWebProvider implements InfoProviderInterface
             }
         } else {
             //Use the whole body content, as it might contain relevant information, especially for simpler pages that don't have a clear main/content section.
-            $htmlToConvert = $html;
+            $htmlToConvert = $crawler->outerHtml();
         }
 
 
