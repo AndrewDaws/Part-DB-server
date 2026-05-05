@@ -196,6 +196,7 @@ final class AIWebProvider implements InfoProviderInterface
             $href = $node->attr('href');
             if ($href) {
                 $absoluteUrl = UriResolver::resolve($href, $baseUrl);
+                //@phpstan-ignore-next-line we know that getNode(0) will always return a DOMElement, because the crawler is initialized with valid HTML and we are filtering for 'a' tags, which are always DOMElements.
                 $node->getNode(0)->setAttribute('href', $absoluteUrl);
             }
         });
@@ -204,6 +205,7 @@ final class AIWebProvider implements InfoProviderInterface
             $src = $node->attr('src');
             if ($src) {
                 $absoluteUrl = UriResolver::resolve($src, $baseUrl);
+                //@phpstan-ignore-next-line we know that getNode(0) will always return a DOMElement, because the crawler is initialized with valid HTML and we are filtering for 'a' tags, which are always DOMElements.
                 $node->getNode(0)->setAttribute('src', $absoluteUrl);
             }
         });

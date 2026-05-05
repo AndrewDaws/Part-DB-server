@@ -154,6 +154,7 @@ final class RandomizeUseragentHttpClient implements HttpClientInterface
 
             //When we get a 503, 403 or 429, we assume that the server is blocking us and try again with a different user agent
             if (!in_array($response->getStatusCode(), [403, 429, 503], true)) {
+                $this->lastUrl = $url; // Update last visited URL for referer in the next request
                 return $response;
             }
 
