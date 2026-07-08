@@ -78,6 +78,7 @@ class AttachmentSubmitHandler
         protected FileTypeFilterTools $filterTools,
         protected AttachmentsSettings $settings,
         protected readonly SVGSanitizer $SVGSanitizer,
+        private readonly AttachmentsSettings $attachmentsSettings,
         #[Autowire(env: "bool:ALLOW_ATTACHMENT_DOWNLOADS_FROM_LOCALNETWORK")]
         private readonly bool $allow_local_network_downloads = false,
     )
@@ -399,9 +400,30 @@ class AttachmentSubmitHandler
             //Open a temporary file in the attachment folder
             $fs->mkdir($attachment_folder);
             $fileHandler = fopen($tmp_path, 'wb');
+
+            $bytesDownloaded = 0;
+            $maxSize = $this->attachmentsSettings->getMaxFileSizeInMegabytes() * 1024 * 1024; //Convert to bytes
+
             //Write the downloaded data to file
             foreach ($this->httpClient->stream($response) as $chunk) {
-                fwrite($fileHandler, $chunk->getContent());
+                $content = $chunk->getContent();
+                $bytesDownloaded += strlen($content);
+
+                //Ensure the size does not get too large to avoid filling up the disk easily.
+                //If the file is too big, cancel the download and delete the temporary file.
+                if ($bytesDownloaded > $maxSize) {
+                    $response->cancel();
+                    fclose($fileHandler);
+                    unlink($tmp_path); //Delete the temporary file, because it is too big
+
+                    throw new AttachmentDownloadException(
+                        sprintf(
+                            'The downloaded file is too big! Maximum size is %d MB!',
+                            $this->settings->getMaxFileSizeInMegabytes()
+                        ));
+                }
+
+                fwrite($fileHandler, $content);
             }
             fclose($fileHandler);
 
