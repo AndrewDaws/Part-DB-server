@@ -78,7 +78,6 @@ class AttachmentSubmitHandler
         protected FileTypeFilterTools $filterTools,
         protected AttachmentsSettings $settings,
         protected readonly SVGSanitizer $SVGSanitizer,
-        private readonly AttachmentsSettings $attachmentsSettings,
         #[Autowire(env: "bool:ALLOW_ATTACHMENT_DOWNLOADS_FROM_LOCALNETWORK")]
         private readonly bool $allow_local_network_downloads = false,
     )
