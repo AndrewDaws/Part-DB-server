@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b475df042448d8143469da476afbd8f",
+    "content-hash": "71f989737d92309c38cbbf0e4e6e0e6e",
     "packages": [
         {
             "name": "amphp/amp",
@@ -10735,21 +10735,21 @@
         },
         {
             "name": "symfony/ai-bundle",
-            "version": "v0.10.0",
+            "version": "v0.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ai-bundle.git",
-                "reference": "5f6d218ca26a4ac3c2b743e4bfae769c41c556c0"
+                "reference": "a66502ab5ff676be4f318a273eab17ab934c661a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ai-bundle/zipball/5f6d218ca26a4ac3c2b743e4bfae769c41c556c0",
-                "reference": "5f6d218ca26a4ac3c2b743e4bfae769c41c556c0",
+                "url": "https://api.github.com/repos/symfony/ai-bundle/zipball/a66502ab5ff676be4f318a273eab17ab934c661a",
+                "reference": "a66502ab5ff676be4f318a273eab17ab934c661a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "symfony/ai-platform": "^0.10",
+                "symfony/ai-platform": "^0.11",
                 "symfony/clock": "^7.3|^8.0",
                 "symfony/config": "^7.3|^8.0",
                 "symfony/console": "^7.3|^8.0",
@@ -10764,74 +10764,76 @@
                 "phpstan/phpstan-phpunit": "^2.0",
                 "phpstan/phpstan-strict-rules": "^2.0",
                 "phpunit/phpunit": "^11.5.53",
-                "symfony/ai-agent": "^0.10",
-                "symfony/ai-ai-ml-api-platform": "^0.10",
-                "symfony/ai-albert-platform": "^0.10",
-                "symfony/ai-amazee-ai-platform": "^0.10",
-                "symfony/ai-anthropic-platform": "^0.10",
-                "symfony/ai-azure-platform": "^0.10",
-                "symfony/ai-azure-search-store": "^0.10",
-                "symfony/ai-bedrock-platform": "^0.10",
-                "symfony/ai-cache-message-store": "^0.10",
-                "symfony/ai-cache-platform": "^0.10",
-                "symfony/ai-cache-store": "^0.10",
-                "symfony/ai-cartesia-platform": "^0.10",
-                "symfony/ai-cerebras-platform": "^0.10",
-                "symfony/ai-chat": "^0.10",
-                "symfony/ai-chroma-db-store": "^0.10",
-                "symfony/ai-click-house-store": "^0.10",
-                "symfony/ai-cloudflare-message-store": "^0.10",
-                "symfony/ai-cloudflare-store": "^0.10",
-                "symfony/ai-cohere-platform": "^0.10",
-                "symfony/ai-decart-platform": "^0.10",
-                "symfony/ai-deep-seek-platform": "^0.10",
-                "symfony/ai-docker-model-runner-platform": "^0.10",
-                "symfony/ai-doctrine-message-store": "^0.10",
-                "symfony/ai-elasticsearch-store": "^0.10",
-                "symfony/ai-eleven-labs-platform": "^0.10",
-                "symfony/ai-failover-platform": "^0.10",
-                "symfony/ai-gemini-platform": "^0.10",
-                "symfony/ai-generic-platform": "^0.10",
-                "symfony/ai-hugging-face-platform": "^0.10",
-                "symfony/ai-lm-studio-platform": "^0.10",
-                "symfony/ai-manticore-search-store": "^0.10",
-                "symfony/ai-maria-db-store": "^0.10",
-                "symfony/ai-meilisearch-message-store": "^0.10",
-                "symfony/ai-meilisearch-store": "^0.10",
-                "symfony/ai-meta-platform": "^0.10",
-                "symfony/ai-milvus-store": "^0.10",
-                "symfony/ai-mistral-platform": "^0.10",
-                "symfony/ai-mongo-db-message-store": "^0.10",
-                "symfony/ai-mongo-db-store": "^0.10",
-                "symfony/ai-neo4j-store": "^0.10",
-                "symfony/ai-ollama-platform": "^0.10",
-                "symfony/ai-open-ai-platform": "^0.10",
-                "symfony/ai-open-responses-platform": "^0.10",
-                "symfony/ai-open-router-platform": "^0.10",
-                "symfony/ai-open-search-store": "^0.10",
-                "symfony/ai-ovh-platform": "^0.10",
-                "symfony/ai-perplexity-platform": "^0.10",
-                "symfony/ai-pinecone-store": "^0.10",
-                "symfony/ai-pogocache-message-store": "^0.10",
-                "symfony/ai-postgres-store": "^0.10",
-                "symfony/ai-qdrant-store": "^0.10",
-                "symfony/ai-redis-message-store": "^0.10",
-                "symfony/ai-redis-store": "^0.10",
-                "symfony/ai-replicate-platform": "^0.10",
-                "symfony/ai-s3vectors-store": "^0.10",
-                "symfony/ai-scaleway-platform": "^0.10",
-                "symfony/ai-session-message-store": "^0.10",
-                "symfony/ai-sqlite-store": "^0.10",
-                "symfony/ai-store": "^0.10",
-                "symfony/ai-supabase-store": "^0.10",
-                "symfony/ai-surreal-db-message-store": "^0.10",
-                "symfony/ai-surreal-db-store": "^0.10",
-                "symfony/ai-transformers-php-platform": "^0.10",
-                "symfony/ai-typesense-store": "^0.10",
-                "symfony/ai-vektor-store": "^0.10",
-                "symfony/ai-vertex-ai-platform": "^0.10",
-                "symfony/ai-voyage-platform": "^0.10",
-                "symfony/ai-weaviate-store": "^0.10",
+                "symfony/ai-agent": "^0.11",
+                "symfony/ai-ai-ml-api-platform": "^0.11",
+                "symfony/ai-albert-platform": "^0.11",
+                "symfony/ai-amazee-ai-platform": "^0.11",
+                "symfony/ai-anthropic-platform": "^0.11",
+                "symfony/ai-azure-platform": "^0.11",
+                "symfony/ai-azure-search-store": "^0.11",
+                "symfony/ai-bedrock-platform": "^0.11",
+                "symfony/ai-cache-message-store": "^0.11",
+                "symfony/ai-cache-platform": "^0.11",
+                "symfony/ai-cache-store": "^0.11",
+                "symfony/ai-cartesia-platform": "^0.11",
+                "symfony/ai-cerebras-platform": "^0.11",
+                "symfony/ai-chat": "^0.11",
+                "symfony/ai-chroma-db-store": "^0.11",
+                "symfony/ai-click-house-store": "^0.11",
+                "symfony/ai-cloudflare-message-store": "^0.11",
+                "symfony/ai-cloudflare-store": "^0.11",
+                "symfony/ai-cohere-platform": "^0.11",
+                "symfony/ai-decart-platform": "^0.11",
+                "symfony/ai-deep-seek-platform": "^0.11",
+                "symfony/ai-deepgram-platform": "^0.11",
+                "symfony/ai-docker-model-runner-platform": "^0.11",
+                "symfony/ai-doctrine-message-store": "^0.11",
+                "symfony/ai-elasticsearch-store": "^0.11",
+                "symfony/ai-eleven-labs-platform": "^0.11",
+                "symfony/ai-failover-platform": "^0.11",
+                "symfony/ai-gemini-platform": "^0.11",
+                "symfony/ai-generic-platform": "^0.11",
+                "symfony/ai-hugging-face-platform": "^0.11",
+                "symfony/ai-lm-studio-platform": "^0.11",
+                "symfony/ai-manticore-search-store": "^0.11",
+                "symfony/ai-maria-db-store": "^0.11",
+                "symfony/ai-meilisearch-message-store": "^0.11",
+                "symfony/ai-meilisearch-store": "^0.11",
+                "symfony/ai-meta-platform": "^0.11",
+                "symfony/ai-milvus-store": "^0.11",
+                "symfony/ai-mini-max-platform": "^0.11",
+                "symfony/ai-mistral-platform": "^0.11",
+                "symfony/ai-mongo-db-message-store": "^0.11",
+                "symfony/ai-mongo-db-store": "^0.11",
+                "symfony/ai-neo4j-store": "^0.11",
+                "symfony/ai-ollama-platform": "^0.11",
+                "symfony/ai-open-ai-platform": "^0.11",
+                "symfony/ai-open-responses-platform": "^0.11",
+                "symfony/ai-open-router-platform": "^0.11",
+                "symfony/ai-open-search-store": "^0.11",
+                "symfony/ai-ovh-platform": "^0.11",
+                "symfony/ai-perplexity-platform": "^0.11",
+                "symfony/ai-pinecone-store": "^0.11",
+                "symfony/ai-pogocache-message-store": "^0.11",
+                "symfony/ai-postgres-store": "^0.11",
+                "symfony/ai-qdrant-store": "^0.11",
+                "symfony/ai-redis-message-store": "^0.11",
+                "symfony/ai-redis-store": "^0.11",
+                "symfony/ai-replicate-platform": "^0.11",
+                "symfony/ai-s3vectors-store": "^0.11",
+                "symfony/ai-scaleway-platform": "^0.11",
+                "symfony/ai-session-message-store": "^0.11",
+                "symfony/ai-sqlite-store": "^0.11",
+                "symfony/ai-store": "^0.11",
+                "symfony/ai-supabase-store": "^0.11",
+                "symfony/ai-surreal-db-message-store": "^0.11",
+                "symfony/ai-surreal-db-store": "^0.11",
+                "symfony/ai-transformers-php-platform": "^0.11",
+                "symfony/ai-typesense-store": "^0.11",
+                "symfony/ai-vektor-store": "^0.11",
+                "symfony/ai-vertex-ai-platform": "^0.11",
+                "symfony/ai-voyage-platform": "^0.11",
+                "symfony/ai-weaviate-store": "^0.11",
                 "symfony/expression-language": "^7.3|^8.0",
                 "symfony/security-core": "^7.3|^8.0",
                 "symfony/translation": "^7.3|^8.0",
@@ -10869,7 +10871,7 @@
             ],
             "description": "Integration bundle for Symfony AI components",
             "support": {
-                "source": "https://github.com/symfony/ai-bundle/tree/v0.10.0"
+                "source": "https://github.com/symfony/ai-bundle/tree/v0.11.1"
             },
             "funding": [
                 {
@@ -10889,25 +10891,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-16T07:10:08+00:00"
+            "time": "2026-07-16T11:42:34+00:00"
         },
         {
             "name": "symfony/ai-generic-platform",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ai-generic-platform.git",
-                "reference": "a099d8a35ea9f7254a159b9c17bc7a4927f9ebb2"
+                "reference": "b56ea991a4232ea16204960ab8dc8a1da44cb320"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ai-generic-platform/zipball/a099d8a35ea9f7254a159b9c17bc7a4927f9ebb2",
-                "reference": "a099d8a35ea9f7254a159b9c17bc7a4927f9ebb2",
+                "url": "https://api.github.com/repos/symfony/ai-generic-platform/zipball/b56ea991a4232ea16204960ab8dc8a1da44cb320",
+                "reference": "b56ea991a4232ea16204960ab8dc8a1da44cb320",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "symfony/ai-platform": "^0.10",
+                "symfony/ai-platform": "^0.11",
                 "symfony/http-client": "^7.3|^8.0"
             },
             "require-dev": {
@@ -10954,7 +10956,7 @@
                 "platform"
             ],
             "support": {
-                "source": "https://github.com/symfony/ai-generic-platform/tree/v0.10.0"
+                "source": "https://github.com/symfony/ai-generic-platform/tree/v0.11.0"
             },
             "funding": [
                 {
@@ -10974,26 +10976,26 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-16T07:10:08+00:00"
+            "time": "2026-07-15T00:58:20+00:00"
         },
         {
             "name": "symfony/ai-lm-studio-platform",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ai-lm-studio-platform.git",
-                "reference": "b6c4a3a5bedf2fd613953447602945c104e75a30"
+                "reference": "b9725715569184ed80ebecb01a17893660cc550b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ai-lm-studio-platform/zipball/b6c4a3a5bedf2fd613953447602945c104e75a30",
-                "reference": "b6c4a3a5bedf2fd613953447602945c104e75a30",
+                "url": "https://api.github.com/repos/symfony/ai-lm-studio-platform/zipball/b9725715569184ed80ebecb01a17893660cc550b",
+                "reference": "b9725715569184ed80ebecb01a17893660cc550b",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "symfony/ai-generic-platform": "^0.10",
-                "symfony/ai-platform": "^0.10",
+                "symfony/ai-generic-platform": "^0.11",
+                "symfony/ai-platform": "^0.11",
                 "symfony/http-client": "^7.3|^8.0"
             },
             "require-dev": {
@@ -11041,7 +11043,7 @@
                 "platform"
             ],
             "support": {
-                "source": "https://github.com/symfony/ai-lm-studio-platform/tree/v0.10.0"
+                "source": "https://github.com/symfony/ai-lm-studio-platform/tree/v0.11.0"
             },
             "funding": [
                 {
@@ -11061,25 +11063,25 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-15T22:48:31+00:00"
+            "time": "2026-07-15T00:58:20+00:00"
         },
         {
             "name": "symfony/ai-ollama-platform",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ai-ollama-platform.git",
-                "reference": "1542f19b78362cafc034c219f5bc9a5a239a0ffb"
+                "reference": "b42c359a7f414053d1b30f70e6508528853a8704"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ai-ollama-platform/zipball/1542f19b78362cafc034c219f5bc9a5a239a0ffb",
-                "reference": "1542f19b78362cafc034c219f5bc9a5a239a0ffb",
+                "url": "https://api.github.com/repos/symfony/ai-ollama-platform/zipball/b42c359a7f414053d1b30f70e6508528853a8704",
+                "reference": "b42c359a7f414053d1b30f70e6508528853a8704",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "symfony/ai-platform": "^0.10",
+                "symfony/ai-platform": "^0.11",
                 "symfony/http-client": "^7.3|^8.0"
             },
             "require-dev": {
@@ -11127,7 +11129,7 @@
                 "platform"
             ],
             "support": {
-                "source": "https://github.com/symfony/ai-ollama-platform/tree/v0.10.0"
+                "source": "https://github.com/symfony/ai-ollama-platform/tree/v0.11.0"
             },
             "funding": [
                 {
@@ -11147,26 +11149,26 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-15T22:48:31+00:00"
+            "time": "2026-07-15T00:58:20+00:00"
         },
         {
             "name": "symfony/ai-open-router-platform",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ai-open-router-platform.git",
-                "reference": "cfadb7858fca98b28b968b032b1bbeb5c9cc985b"
+                "reference": "5ad625058227bf628ca0f504ba035599a1e8c91d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ai-open-router-platform/zipball/cfadb7858fca98b28b968b032b1bbeb5c9cc985b",
-                "reference": "cfadb7858fca98b28b968b032b1bbeb5c9cc985b",
+                "url": "https://api.github.com/repos/symfony/ai-open-router-platform/zipball/5ad625058227bf628ca0f504ba035599a1e8c91d",
+                "reference": "5ad625058227bf628ca0f504ba035599a1e8c91d",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
-                "symfony/ai-generic-platform": "^0.10",
-                "symfony/ai-platform": "^0.10",
+                "symfony/ai-generic-platform": "^0.11",
+                "symfony/ai-platform": "^0.11",
                 "symfony/http-client": "^7.3|^8.0"
             },
             "require-dev": {
@@ -11214,7 +11216,7 @@
                 "platform"
             ],
             "support": {
-                "source": "https://github.com/symfony/ai-open-router-platform/tree/v0.10.0"
+                "source": "https://github.com/symfony/ai-open-router-platform/tree/v0.11.0"
             },
             "funding": [
                 {
@@ -11234,20 +11236,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-16T08:09:36+00:00"
+            "time": "2026-07-15T00:58:20+00:00"
         },
         {
             "name": "symfony/ai-platform",
-            "version": "v0.10.0",
+            "version": "v0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ai-platform.git",
-                "reference": "8100507aa9c46f3ad56d0272e8e46b558f451052"
+                "reference": "dce4285eaf891cbdcb9526e576e3df6f8220fd1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ai-platform/zipball/8100507aa9c46f3ad56d0272e8e46b558f451052",
-                "reference": "8100507aa9c46f3ad56d0272e8e46b558f451052",
+                "url": "https://api.github.com/repos/symfony/ai-platform/zipball/dce4285eaf891cbdcb9526e576e3df6f8220fd1d",
+                "reference": "dce4285eaf891cbdcb9526e576e3df6f8220fd1d",
                 "shasum": ""
             },
             "require": {
@@ -11346,7 +11348,7 @@
                 "voyage"
             ],
             "support": {
-                "source": "https://github.com/symfony/ai-platform/tree/v0.10.0"
+                "source": "https://github.com/symfony/ai-platform/tree/v0.11.0"
             },
             "funding": [
                 {
@@ -11366,7 +11368,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-16T06:39:24+00:00"
+            "time": "2026-07-15T01:10:14+00:00"
         },
         {
             "name": "symfony/apache-pack",
