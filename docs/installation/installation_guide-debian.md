@@ -145,6 +145,16 @@ A full list of configuration options can be  found [here](../configuration.md).
 > ```
 > or edit the file with a text editor and add a new value for `APP_SECRET` (you can generate a random value with `openssl rand -hex 32`).
 
+{: .important }
+> **Set `TRUSTED_HOSTS` before going live.** By default Part-DB accepts requests for any host name, which makes it
+> vulnerable to `HTTP Host header attacks`. Edit your `.env.local` with a text editor and set `TRUSTED_HOSTS` to a
+> regex matching all host names Part-DB should be reachable under, e.g. if Part-DB should only be reachable via
+> `part-db.example.invalid`:
+> ```
+> TRUSTED_HOSTS='^(part-db\.example\.invalid)$'
+> ```
+> See the [configuration options](../configuration.md) page for more information about `TRUSTED_HOSTS`.
+
 Please check that the configured base currency matches your mainly used currency, as
 this can not be changed after creating price information.
 

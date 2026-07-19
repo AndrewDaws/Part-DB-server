@@ -262,7 +262,15 @@ See the [information providers]({% link usage/information_provider_system.md %})
 * `TRUSTED_PROXIES` (env only): Set the IP addresses (or IP blocks) of trusted reverse proxies here. This is needed to get correct
   IP information (see [here](https://symfony.com/doc/current/deployment/proxies.html) for more info).
 * `TRUSTED_HOSTS` (env only): To prevent `HTTP Host header attacks` you can set a regex containing all host names via which Part-DB
-  should be accessible. If accessed via the wrong hostname, an error will be shown.
+  should be accessible. If accessed via a hostname not matching the regex, an error page will be shown instead. By default this
+  is empty, meaning Part-DB accepts requests for any host name, which is not recommended for production use.
+
+  For example, if Part-DB should only be reachable under `part-db.example.invalid`, set:
+  ```
+  TRUSTED_HOSTS='^(part-db\.example\.invalid)$'
+  ```
+  You can specify multiple host names separated by `|`, e.g. `^(localhost|part-db\.example\.invalid)$`.
+  Part-DB displays a warning on the homepage (visible to administrators only) as long as this value is not set.
 * `DEMO_MODE` (env only): Set Part-DB into demo mode, which forbids users to change their passwords and settings. Used for the demo
   instance. This should not be needed for normal installations.
 * `NO_URL_REWRITE_AVAILABLE` (allowed values `true` or `false`) (env only): Set this value to true, if your webserver does not
