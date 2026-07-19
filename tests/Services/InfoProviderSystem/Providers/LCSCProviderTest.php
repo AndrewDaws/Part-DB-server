@@ -133,25 +133,21 @@ final class LCSCProviderTest extends TestCase
     {
         $mockResponse = new MockResponse(json_encode([
             'result' => [
-                'productSearchResultVO' => [
-                    'productList' => [
-                        [
-                            'productCode' => 'C789012',
-                            'productModel' => 'Regular Component',
-                            'productIntroEn' => 'Regular description',
-                            'brandNameEn' => 'Regular Manufacturer',
-                            'encapStandard' => '0805',
-                            'productImageUrl' => 'https://example.com/regular.jpg',
-                            'productImages' => ['https://example.com/regular1.jpg'],
-                            'productPriceList' => [
-                                ['ladder' => 10, 'productPrice' => '0.08', 'currencySymbol' => '€']
-                            ],
-                            'paramVOList' => [],
-                            'pdfUrl' => null,
-                            'weight' => null
-                        ]
-                    ]
-                ]
+                'exactMatchResult' => [[
+                    'productCode' => 'C789012',
+                    'productModel' => 'Regular Component',
+                    'productIntroEn' => 'Regular description',
+                    'brandNameEn' => 'Regular Manufacturer',
+                    'encapStandard' => '0805',
+                    'productImageUrl' => 'https://example.com/regular.jpg',
+                    'productImages' => ['https://example.com/regular1.jpg'],
+                    'productPriceList' => [
+                        ['ladder' => 10, 'productPrice' => '0.08', 'currencySymbol' => '€']
+                    ],
+                    'paramVOList' => [],
+                    'pdfUrl' => null,
+                    'weight' => null
+                ]]
             ]
         ]));
 
@@ -166,45 +162,6 @@ final class LCSCProviderTest extends TestCase
         $this->assertSame('Regular Component', $results[0]->name);
     }
 
-    public function testSearchByKeywordWithTipProduct(): void
-    {
-        $mockResponse = new MockResponse(json_encode([
-            'result' => [
-                'productSearchResultVO' => [
-                    'productList' => []
-                ],
-                'tipProductDetailUrlVO' => [
-                    'productCode' => 'C555555'
-                ]
-            ]
-        ]));
-
-        $detailResponse = new MockResponse(json_encode([
-            'result' => [
-                'productCode' => 'C555555',
-                'productModel' => 'Tip Component',
-                'productIntroEn' => 'Tip description',
-                'brandNameEn' => 'Tip Manufacturer',
-                'encapStandard' => '1206',
-                'productImageUrl' => null,
-                'productImages' => [],
-                'productPriceList' => [],
-                'paramVOList' => [],
-                'pdfUrl' => null,
-                'weight' => null
-            ]
-        ]));
-
-        $this->httpClient->setResponseFactory([$mockResponse, $detailResponse]);
-
-        $results = $this->provider->searchByKeyword('special');
-
-        $this->assertIsArray($results);
-        $this->assertCount(1, $results);
-        $this->assertInstanceOf(PartDetailDTO::class, $results[0]);
-        $this->assertSame('C555555', $results[0]->provider_id);
-        $this->assertSame('Tip Component', $results[0]->name);
-    }
 
     public function testSearchByKeywordsBatch(): void
     {
@@ -310,7 +267,7 @@ final class LCSCProviderTest extends TestCase
             ]
         ]));
 
-        $this->httpClient->setResponseFactory([$mockResponse]);
+        $this->httpClient->setResponseFactory([$mockResponse, $mockResponse]);
 
         $this->expectException(\RuntimeException::class);
         $this->expectExceptionMessage('No part found with ID INVALID');
@@ -322,8 +279,7 @@ final class LCSCProviderTest extends TestCase
     {
         $mockResponse = new MockResponse(json_encode([
             'result' => [
-                'productSearchResultVO' => [
-                    'productList' => [
+                'exactMatchResult' => [
                         [
                             'productCode' => 'C123456',
                             'productModel' => 'Component 1',
@@ -350,7 +306,6 @@ final class LCSCProviderTest extends TestCase
                             'pdfUrl' => null,
                             'weight' => null
                         ]
-                    ]
                 ]
             ]
         ]));
