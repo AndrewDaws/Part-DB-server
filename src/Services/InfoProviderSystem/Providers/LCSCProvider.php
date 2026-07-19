@@ -151,7 +151,7 @@ class LCSCProvider implements BatchInfoProviderInterface, URLHandlerInfoProvider
 
         //If we get exact matches, use them
         if (!empty($arr['result']['exactMatchResult'])) {
-            $products = $arr['result']['a'];
+            $products = $arr['result']['exactMatchResult'];
         } else { //Otherwise fallback onto the third search endpoint, which has a worse data quality but is more likely to return results for vague search terms
             $response = $this->lcscClient->request('POST', self::ENDPOINT_URL."/search/third", [
                 'headers' => [
@@ -169,6 +169,8 @@ class LCSCProvider implements BatchInfoProviderInterface, URLHandlerInfoProvider
             // Get products list
             $products = $arr['result']['productList'] ?? [];
         }
+
+        $result = [];
 
         foreach ($products as $product) {
             $result[] = $this->getPartDetail($product, $lightweight);
