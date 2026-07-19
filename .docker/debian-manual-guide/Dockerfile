@@ -1,8 +1,8 @@
 # Reproduces https://docs.part-db.de/installation/installation_guide-debian.html
-# on Debian 12 (bookworm) as closely as possible, for debugging issues reported
+# on Debian 13 (trixie) as closely as possible, for debugging issues reported
 # by users who followed that guide (Apache2 + mod_php, not the project's own
 # FrankenPHP-based Dockerfile at the repo root).
-FROM debian:12
+FROM debian:13
 
 ARG HOST_UID=1000
 ARG HOST_GID=1000
@@ -17,12 +17,12 @@ RUN apt-get update && apt-get upgrade -y && \
     && rm -rf /var/lib/apt/lists/*
 
 # --- PHP and Apache2 (guide: "PHP and Apache2 Setup") ---
-# Debian 12 ships PHP 8.2 by default, so no extra PHP repo is needed.
+# Debian 13 ships PHP 8.4 by default, so no extra PHP repo is needed.
 RUN apt-get update && apt-get install -y --no-install-recommends \
-        apache2 php8.2 libapache2-mod-php8.2 \
-        php8.2-opcache php8.2-curl php8.2-gd php8.2-mbstring \
-        php8.2-xml php8.2-bcmath php8.2-intl php8.2-zip php8.2-xsl \
-        php8.2-sqlite3 php8.2-mysql \
+        apache2 php8.4 libapache2-mod-php8.4 \
+        php8.4-opcache php8.4-curl php8.4-gd php8.4-mbstring \
+        php8.4-xml php8.4-bcmath php8.4-intl php8.4-zip php8.4-xsl \
+        php8.4-sqlite3 php8.4-mysql \
     && rm -rf /var/lib/apt/lists/*
 
 # --- Composer (guide: "Composer Installation") ---
